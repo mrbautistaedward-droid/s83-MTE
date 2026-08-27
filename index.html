@@ -3,75 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Shop | Home</title>
+    <title>Educational Resource Hub</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom Styles -->
     <style>
         :root {
-            --primary-color: #2b3a4a;
-            --accent-color: #f39c12;
-            --bg-light: #f8f9fa;
+            --primary-blue: #0d6efd;
+            --dark-navy: #1e293b;
+            --light-bg: #f8f9fa;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-light);
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
         }
 
-        .navbar-brand {
-            font-weight: bold;
-            color: var(--accent-color) !important;
+        /* Offset fixed navbar when scrolling to sections */
+        section {
+            scroll-margin-top: 70px;
         }
 
-        /* Hero Section Custom Styles */
-        #hero {
-            background: linear-gradient(rgba(43, 58, 74, 0.85), rgba(43, 58, 74, 0.85)), 
-                        url('https://picsum.photos/1200/600') center/cover no-repeat;
+        .navbar {
+            background-color: var(--dark-navy) !important;
+        }
+
+        .hero-banner {
+            background: linear-gradient(135deg, #1e293b 0%, #0d6efd 100%);
             color: #ffffff;
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .card {
             border: none;
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
         }
 
-        .btn-custom {
-            background-color: var(--accent-color);
-            color: #ffffff;
-            border: none;
+        .category-badge {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark-navy);
+            transition: background-color 0.2s;
         }
 
-        .btn-custom:hover {
-            background-color: #e08e0b;
+        .category-badge:hover {
+            background-color: var(--primary-blue);
             color: #ffffff;
         }
 
         footer {
-            background-color: var(--primary-color);
+            background-color: var(--dark-navy);
             color: #ffffff;
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark style-nav fixed-top" style="background-color: var(--primary-color);">
+    <!-- Navigation Menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand fs-3" href="#">E-Shop</a>
+            <a class="navbar-brand fw-bold" href="#home">EduHub</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#introduction">Introduction</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#featured">Featured</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#categories-section">Categories</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#resources">Resources</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -79,78 +89,137 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="hero" class="text-center d-flex align-items-center justify-content-center mt-5">
-        <div class="container">
-            <h1 class="display-3 fw-bold mb-3">Discover Quality Products</h1>
-            <p class="lead mb-4">Shop the latest trends with incredible deals every day.</p>
-            <a href="#products" class="btn btn-custom btn-lg px-4 py-2">Shop Now</a>
-        </div>
-    </section>
+    <!-- Main Content Container (SPA Layout) -->
+    <main class="mt-5 pt-3">
 
-    <!-- Featured Products Section -->
-    <section id="products" class="py-5">
-        <div class="container">
-            <!-- Headings -->
-            <div class="text-center mb-5">
-                <h2 class="fw-bold display-5">Featured Products</h2>
-                <p class="text-muted">Handpicked items just for you</p>
+        <!-- HOME SECTION -->
+        <section id="home">
+            <!-- Introduction Subsection -->
+            <div id="introduction" class="hero-banner text-center mb-5">
+                <div class="container">
+                    <h1 class="display-4 fw-bold mb-3">Welcome to EduHub</h1>
+                    <p class="lead mb-4 mx-auto" style="max-width: 700px;">
+                        Your centralized portal for high-quality open-source learning materials, tutorials, and academic documentation.
+                    </p>
+                    <a href="#resources" class="btn btn-light btn-lg px-4 fw-semibold">Explore Resources</a>
+                </div>
             </div>
 
-            <!-- Cards -->
-            <div class="row g-4">
-                <!-- Card 1 -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="https://picsum.photos/400/300?random=1" class="card-img-top" alt="Product 1">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Wireless Headphones</h5>
-                            <p class="card-text text-muted">High-quality sound with noise cancellation and long battery life.</p>
-                            <div class="mt-auto d-flex justify-content-between align-items-center">
-                                <span class="fs-5 fw-bold text-dark">$99.99</span>
-                                <a href="#" class="btn btn-custom btn-sm">Add to Cart</a>
+            <!-- Featured Subsection -->
+            <div id="featured" class="container py-4 mb-5">
+                <h2 class="fw-bold mb-4 text-center">Featured Highlights</h2>
+                <div class="row g-4">
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 shadow-sm p-3">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold text-primary">Web Development 101</h5>
+                                <p class="card-text text-muted">Master HTML, CSS, and Bootstrap with interactive lessons.</p>
+                                <a href="#resources" class="btn btn-outline-primary btn-sm">Learn More</a>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="https://picsum.photos/400/300?random=2" class="card-img-top" alt="Product 2">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Smart Watch</h5>
-                            <p class="card-text text-muted">Track your fitness, heart rate, and stay connected on the go.</p>
-                            <div class="mt-auto d-flex justify-content-between align-items-center">
-                                <span class="fs-5 fw-bold text-dark">$149.99</span>
-                                <a href="#" class="btn btn-custom btn-sm">Add to Cart</a>
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 shadow-sm p-3">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold text-primary">JavaScript Essentials</h5>
+                                <p class="card-text text-muted">Deep dive into logic, ES6 features, and asynchronous coding.</p>
+                                <a href="#resources" class="btn btn-outline-primary btn-sm">Learn More</a>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card h-100 shadow-sm">
-                        <img src="https://picsum.photos/400/300?random=3" class="card-img-top" alt="Product 3">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title fw-bold">Modern Backpack</h5>
-                            <p class="card-text text-muted">Durable, water-resistant design perfect for work or travel.</p>
-                            <div class="mt-auto d-flex justify-content-between align-items-center">
-                                <span class="fs-5 fw-bold text-dark">$49.99</span>
-                                <a href="#" class="btn btn-custom btn-sm">Add to Cart</a>
+                    <div class="col-12 col-md-4">
+                        <div class="card h-100 shadow-sm p-3">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold text-primary">Git & Version Control</h5>
+                                <p class="card-text text-muted">Understand repositories, branching, and pushing code to GitHub.</p>
+                                <a href="#resources" class="btn btn-outline-primary btn-sm">Learn More</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- CATEGORIES SECTION -->
+        <section id="categories-section" class="bg-white py-5 border-top border-bottom">
+            <div class="container">
+                <!-- Category Listings Subsection -->
+                <div id="categories" class="mb-5">
+                    <h2 class="fw-bold text-center mb-4">Browse Categories</h2>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3">
+                            <div class="category-badge border shadow-sm">Frontend Engineering</div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="category-badge border shadow-sm">Backend Development</div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="category-badge border shadow-sm">Database Systems</div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="category-badge border shadow-sm">DevOps & Cloud</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Resources Subsection -->
+                <div id="resources" class="pt-3">
+                    <h2 class="fw-bold text-center mb-4">Sample Learning Resources</h2>
+                    <div class="row g-4">
+                        <div class="col-12 col-md-6">
+                            <div class="card border shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Bootstrap 5 Component Guide</h5>
+                                    <p class="card-text">Comprehensive overview of modern UI building blocks and grid layouts.</p>
+                                    <span class="badge bg-secondary">PDF Guide</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="card border shadow-sm h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">Full-Stack Roadmap 2026</h5>
+                                    <p class="card-text">Step-by-step pathway from beginner concepts to deployment.</p>
+                                    <span class="badge bg-success">Interactive Map</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="py-5">
+            <div class="container">
+                <div class="row g-5">
+                    <!-- Mission Statement Subsection -->
+                    <div id="mission" class="col-12 col-md-6">
+                        <h2 class="fw-bold mb-3">Our Mission</h2>
+                        <p class="text-muted lead">
+                            To empower aspiring developers by providing structured, accessible, and high-quality educational materials designed for real-world application.
+                        </p>
+                    </div>
+
+                    <!-- Contact Information Subsection -->
+                    <div id="contact" class="col-12 col-md-6">
+                        <h2 class="fw-bold mb-3">Contact Us</h2>
+                        <ul class="list-unstyled text-muted">
+                            <li class="mb-2"><strong>Email:</strong> support@eduhub.org</li>
+                            <li class="mb-2"><strong>Location:</strong> Tech Campus Hub</li>
+                            <li class="mb-2"><strong>GitHub:</strong> github.com/eduhub-org</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
     <footer class="py-4 text-center border-top">
         <div class="container">
-            <p class="mb-0">&copy; 2026 E-Shop. All rights reserved.</p>
+            <p class="mb-0">&copy; 2026 EduHub. All rights reserved.</p>
         </div>
     </footer>
 
